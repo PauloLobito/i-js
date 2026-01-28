@@ -1,9 +1,14 @@
-FROM node 
+FROM node:20
 
 WORKDIR /app
 
-COPY src/ /app/src
+# Copia package.json primeiro
+COPY package*.json ./
 
-EXPOSE 80
+# (opcional agora, mas importante depois)
+RUN npm install
 
-CMD [ "bash" ]
+# Copia o código
+COPY src ./src
+
+CMD ["node", "src/index.js"]
