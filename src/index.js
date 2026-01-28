@@ -12,3 +12,5 @@ console.log(
     ? 'The number is not 15'
     : 'The number is ${number}'
 );
+
+
